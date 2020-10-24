@@ -1,0 +1,81 @@
+<div class="limiter" [ng2-loading]="authentificationService.spinner" [config]="authentificationService.spinnerConfig">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-43">
+                    Connectez-vous à SUIBEN
+                </span>
+
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
+                        placeholder="E-mail">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">
+                        <mat-icon style="float: right; margin-right: 20px;">email</mat-icon>
+                    </span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" [(ngModel)]="password" placeholder="Mot de passe"
+                        [ngModelOptions]="{standalone: true}">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">
+                        <mat-icon style="float: right; margin-right: 20px;">lock</mat-icon>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn" style="margin-top: 50px;">
+                    <button class="login100-form-btn" (click)="loginUser()" [disabled]="!email && !password">
+                        Se connecter
+                    </button>
+                </div>
+
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        <a class="label" routerLinkActive="active" data-toggle="modal" data-target="#basicExample"
+                            (click)="frame.show()" mdbWavesEffect>
+                            Créer un compte CEDAR
+                        </a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="login100-more" style="background-image: url('./../../../assets/images/sb_logo.png');">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-authentification-signup></app-authentification-signup> -->
+
+<div mdbModal #frame="mdbModal" class="modal fade left side-right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <span class="login100-form-title p-b-43" style="color:#007E3A;margin-top: 20px;">Inscription à
+                    CEDAR</span>
+            </div>
+            <div class="modal-body mx-3 mt-2">
+                <div class="md-form mb-5">
+                    <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+                    <input type="email" [(ngModel)]="emailSign" placeholder="E-mail" class="form-control" mdbInput>
+                </div>
+
+                <div class="md-form mb-4">
+                    <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+                    <input type="password" [(ngModel)]="passwordSign" placeholder="Mot de passe" class="form-control"
+                        mdbInput>
+                </div>
+
+                <div class="d-flex justify-content-center" style="padding: 25px;">
+                    <input type="button" class="login100-form-btn-2" value="Enregistrer" (click)="signUpUser()"
+                        [disabled]="!emailSign && !passwordSign">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

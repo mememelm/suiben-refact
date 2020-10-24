@@ -1,0 +1,23 @@
+<li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown">
+        <span style="color: #007E3A;"><i class="fas fa-plus"></i> CEDAR</span>
+        <span class="badge badge-warning navbar-badge">{{domainesLength}}</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <form [formGroup]="domaineFormGroup">
+            <div class="d-flex justify-content-center">
+                <input type="text" formControlName="domaineName" placeholder="Ajouter CEDAR"
+                    class="form-control" style="width: 90%;" mdbInput>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="d-flex justify-content-center">
+                <input type="button" (click)="addDomaine()" [disabled]="!domaineFormGroup.valid" class="button-cedar" value="Enregistrer">
+            </div>
+        </form>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" *ngFor="let item of domaines">
+            - {{item.domaineName}}
+            <div class="dropdown-divider"></div>
+        </a>
+    </div>
+</li>

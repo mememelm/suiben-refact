@@ -1,0 +1,8 @@
+.button-cedar {
+    background: #007E3A;
+    color: #fff;
+}
+
+.button-cedar:hover {
+    background:#A54D80;
+}
