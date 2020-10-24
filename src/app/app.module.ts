@@ -33,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { Ng2LoadingSpinnerModule } from 'ng2-loading-spinner';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DataTablesModule } from 'angular-datatables';
 
 // material design
 import { A11yModule } from '@angular/cdk/a11y';
@@ -108,6 +109,7 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
         Ng2LoadingSpinnerModule.forRoot({}),
         NgxChartsModule,
         MDBBootstrapModule.forRoot(),
+        DataTablesModule,
 
         // mat
         A11yModule,
