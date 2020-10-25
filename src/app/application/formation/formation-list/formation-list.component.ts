@@ -160,6 +160,7 @@ export class FormationListComponent implements OnInit {
                             ...cedarData.val()
                         });
                         this.dataSourceformations = new MatTableDataSource<any>(array)
+                        console.log(this.dataSourceformations)
                         this.formationNumber = this.dataSourceformations.data.length
                     }
                 });
