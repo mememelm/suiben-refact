@@ -58,4 +58,85 @@
 
 <app-home></app-home>
 
+<div class="card" *ngIf="loading == true">
+	<div class="card-header">
+		<h3 class="card-title">Formations - <span style="color: #007E3A; font-weight: bold;">Chargement en
+				cours ...</span></h3>
+	</div>
+</div>
 
+<div class="card" *ngIf="loading == false">
+	<div class="row">
+		<div class="col-md-3 mt-3 d-flex justify-content-center">
+			Formations - Total : <span class="ml-1" style="color: #007E3A;"><strong>{{formationNumber}}</strong></span>
+		</div>
+	</div>
+
+	<div class="card-body">
+		<div class="row">
+			<table datatable class="row-border hover" [dtOptions]="dtOptions" style="width: 100%;">
+				<thead style="background-color: #007E3A; color: #fff;">
+					<tr>
+						<th style="min-width: 100px;"> Exploitant </th>
+						<th> Domaine </th>
+						<th> Adhésion </th>
+						<th> Nombre </th>
+						<th style="min-width: 150px;"> Formations </th>
+						<th> Date formation </th>
+						<th> Localisation </th>
+						<th> Compétences </th>
+						<th> Niveau d'étude </th>
+						<th> Activités </th>
+						<th> Spécialités </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let item of dataSourceformations.filteredData"  (click)="openModal(item)">
+						<td>{{item.exploitantFirstName | uppercase}} <br>
+							{{item.exploitantLastName | titlecase}}<br>
+							{{item.exploitantAge}} ans - {{item.exploitantSex | slice:0:1}}
+						</td>
+
+						<td>{{item.exploitantCedar}}</td>
+
+						<td>{{item.exploitantDate | date: 'dd/MM/yyyy'}}</td>
+
+						<td class="text-center">
+							<div *ngFor="let row of item.formations; count as c; last as isLast">
+								<span *ngIf="isLast">{{ c }}</span>
+							</div>
+						</td>
+
+						<td>
+							<span *ngFor="let row of item.formations">
+								{{ row.formationName }}<br>
+							</span>
+						</td>
+
+						<td>
+							<span *ngFor="let row of item.formations">
+								{{ row.formationDate | date: 'dd/MM/yyyy'}}<br>
+							</span>
+						</td>
+
+						<td>{{item.exploitantRegion | titlecase}} <br>
+							{{item.exploitantDistrict | titlecase}}
+						</td>
+
+						<td>{{item.exploitantFormation | titlecase}}</td>
+
+						<td>{{item.exploitantSchooling | titlecase}}</td>
+
+						<td>{{item.exploitantActivite1 | titlecase}} <br>
+							{{item.exploitantActivite2 | titlecase}}
+						</td>
+
+						<td>{{item.exploitantSpeciality1 | titlecase}} <br>
+							{{item.exploitantSpeciality2 | titlecase}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

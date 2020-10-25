@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ModalService {
   public openModal(component, sizeWidth = 'auto', sizeHeight = 'auto', data = {}) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
+    dialogConfig.disableClose = false;
     dialogConfig.width = sizeWidth;
     dialogConfig.height = sizeHeight;
     dialogConfig.data = data;

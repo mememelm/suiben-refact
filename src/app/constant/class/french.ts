@@ -9,7 +9,7 @@ export class DatatableLanguage {
         infoPostFix: "",
         loadingRecords: "Chargement en cours...",
         zeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
-        emptyTable: "Aucune donnée disponible dans le tableau",
+        emptyTable: "Aucune donnée",
         paginate: {
             first: "Premier",
             previous: "Pr&eacute;c&eacute;dent",
