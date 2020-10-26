@@ -38,7 +38,7 @@ export class FormationListComponent implements OnInit {
         this.loadDomaineList()
         if (this.loading == true) {
             setTimeout(() => {
-                this.alertLoading = 'Veuillez vérifiez l\'état de votre connexion internet'
+                this.alertLoading = 'Vérifiez l\'état de votre connexion internet'
             }, 60000)
         }
     }
@@ -105,12 +105,12 @@ export class FormationListComponent implements OnInit {
                     this.formationNumber = this.dataSourceformations.data.length
                     console.log(this.formationNumber)
                     this.loading = false
-                });
-            });
-        });
+                })
+            })
+        })
     }
 
-    onExploitantChange(arg) {
+    selectCedar(arg) {
         const array = [];
         const exploitant = this.angularFireDatabase.database.ref().child('exploitants');
         const cedar = this.angularFireDatabase.database.ref().child('Cedar');
@@ -163,9 +163,9 @@ export class FormationListComponent implements OnInit {
                         console.log(this.dataSourceformations)
                         this.formationNumber = this.dataSourceformations.data.length
                     }
-                });
-            });
-        });
+                })
+            })
+        })
     }
 
     openModal(arg) {

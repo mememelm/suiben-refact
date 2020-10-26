@@ -5,17 +5,20 @@
 		<h3 class="card-title">Formations - <span style="color: #007E3A; font-weight: bold;">Chargement en
 				cours ...</span></h3>
 	</div>
+	<div class="d-flex justify-content-center">
+		{{alertLoading}}
+	</div>
 </div>
 
 <div class="card" *ngIf="loading == false">
 	<div class="row">
 		<div class="col-md-3 mt-3 d-flex justify-content-center">
-			Formations - Total : <span class="ml-1" style="color: #007E3A;"><strong>{{formationNumber}}</strong></span>
+			Formations - Participants : <span class="ml-1" style="color: #007E3A;"><strong>{{formationNumber}}</strong></span>
 		</div>
 
 		<div class="col-md-2">
 			<mat-form-field>
-				<mat-select [ngModel]="dataSourceformations" (selectionChange)="onExploitantChange($event.value)">
+				<mat-select [ngModel]="dataSourceformations" (selectionChange)="selectCedar($event.value)">
 					<mat-option value="tous">Tous</mat-option>
 					<mat-option *ngFor="let domaine of domaines" value="{{ domaine.domaineName }}" class="sl-cedar">
 						{{ domaine.domaineName }}</mat-option>
@@ -26,15 +29,15 @@
 
 	<div class="card-body">
 		<div class="row">
-			<table datatable class="row-border hover" [dtOptions]="dtOptions" style="width: 100%;">
+			<table datatable class="row-border hover" [dtOptions]="dtOptions">
 				<thead style="background-color: #007E3A; color: #fff;">
 					<tr>
-						<th style="min-width: 100px;"> Exploitant </th>
+						<th> Exploitant </th>
 						<th> Domaine </th>
-						<th> Adhésion </th>
-						<th> Nombre </th>
+						<th> Adhésion </th>						
 						<th style="min-width: 150px;"> Formations </th>
 						<th> Date formation </th>
+						<th> Nombre </th>
 						<th> Localisation </th>
 						<th> Compétences </th>
 						<th> Niveau d'étude </th>
@@ -51,24 +54,24 @@
 
 						<td>{{item.exploitantCedar}}</td>
 
-						<td>{{item.exploitantDate | date: 'dd/MM/yyyy'}}</td>
+						<td>{{item.exploitantDate | date: 'dd/MM/yyyy'}}</td>						
 
-						<td class="text-center">
+						<td style="color: #DE3E59;">
+							<span *ngFor="let row of item.formations">
+								<b>{{ row.formationName }}</b><br>
+							</span>
+						</td>
+
+						<td style="color: #DE3E59;">
+							<span *ngFor="let row of item.formations">
+								<b>{{ row.formationDate | date: 'dd/MM/yyyy'}}</b><br>
+							</span>
+						</td>
+
+						<td class="text-center" style="color: #DE3E59;">
 							<div *ngFor="let row of item.formations; count as c; last as isLast">
-								<span *ngIf="isLast">{{ c }}</span>
+								<span *ngIf="isLast"><b>{{ c }}</b></span>
 							</div>
-						</td>
-
-						<td>
-							<span *ngFor="let row of item.formations">
-								{{ row.formationName }}<br>
-							</span>
-						</td>
-
-						<td>
-							<span *ngFor="let row of item.formations">
-								{{ row.formationDate | date: 'dd/MM/yyyy'}}<br>
-							</span>
 						</td>
 
 						<td>{{item.exploitantRegion | titlecase}} <br>
