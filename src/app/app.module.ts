@@ -24,7 +24,7 @@ import {
     AuthentificationLoginComponent,
     EvolutionListComponent,
     HomeComponent, ProductionListComponent, InnovationListComponent,
-    FormationListComponent, FormationDetailComponent, DomaineCedarComponent
+    FormationListComponent, DomaineCedarComponent
 } from './application';
 
 //animation
@@ -90,7 +90,6 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
         HomeComponent,
         ProductionListComponent,
         FormationListComponent,
-        FormationDetailComponent,
         InnovationListComponent,
         EvolutionListComponent,
         DomaineCedarComponent

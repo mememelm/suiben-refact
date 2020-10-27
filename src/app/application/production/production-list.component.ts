@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ExploitantService} from '../../services'
 
 @Component({
   selector: 'app-production-list',

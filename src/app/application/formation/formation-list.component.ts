@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DomaineService, FormationService, ModalService } from '../../../services';
+import { DomaineService, FormationService, ModalService } from '../../services';
 import { MatTableDataSource } from '@angular/material/table';
 import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { DatatableLanguage } from "../../../constant";
-import { ExploitantDetailComponent } from '../../exploitant/exploitant-detail/exploitant-detail.component';
+import { DatatableLanguage } from "../../constant";
+import { ExploitantDetailComponent } from '../exploitant/exploitant-detail/exploitant-detail.component';
 
 @Component({
     selector: 'app-formation-list',
