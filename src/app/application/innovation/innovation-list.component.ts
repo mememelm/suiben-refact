@@ -14,7 +14,6 @@ import { ExploitantDetailComponent } from '../exploitant/exploitant-detail/explo
 })
 export class InnovationListComponent implements OnInit {
 
-    exploitants = new MatTableDataSource<any>()
     public domaines: any
 
     public dataSourceInnovation: MatTableDataSource<any>

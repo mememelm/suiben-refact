@@ -69,3 +69,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .login100-form-btn-2:hover {
     background:#A54D80;
 }
+
+.cursor-cl {
+    cursor: cell;
+}
+
+.cursor-pt {
+    cursor: pointer;
+}

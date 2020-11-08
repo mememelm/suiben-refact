@@ -46,7 +46,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="let item of dataSourceformations.filteredData"  (click)="openModal(item)">
+					<tr *ngFor="let item of dataSourceformations.filteredData"  (click)="openModal(item)" class="cursor-cl">
 						<td>{{item.exploitantFirstName | uppercase}} <br>
 							{{item.exploitantLastName | titlecase}}<br>
 							{{item.exploitantAge}} ans - {{item.exploitantSex | slice:0:1}}

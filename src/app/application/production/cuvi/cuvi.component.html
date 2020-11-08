@@ -2,7 +2,7 @@
 
 <div class="card" *ngIf="loading == true">
 	<div class="card-header">
-		<h3 class="card-title">Exploitants - <span style="color: #007E3A; font-weight: bold;">Chargement en
+		<h3 class="card-title">Productions CUVI globales - <span style="color: #007E3A; font-weight: bold;">Chargement en
 				cours ...</span></h3>
 	</div>
 	<div class="d-flex justify-content-center">
@@ -13,85 +13,59 @@
 <div class="card" *ngIf="loading == false">
 	<div class="row">
 		<div class="col-md-3 mt-3 d-flex justify-content-center">
-			Exploitants - Effectif : <span class="ml-1"
-				style="color: #007E3A;"><strong>{{exploitantsListNumber}}</strong></span>
+			Productions CUVI
 		</div>
 
 		<div class="col-md-2">
 			<mat-form-field>
-				<mat-select [ngModel]="exploitants" (selectionChange)="onExploitantChange($event.value)">
+				<mat-select [ngModel]="listData" (selectionChange)="selectCedar($event.value)">
 					<mat-option value="tous">Tous</mat-option>
 					<mat-option *ngFor="let domaine of domaines" value="{{ domaine.domaineName }}" class="sl-cedar">
 						{{ domaine.domaineName }}</mat-option>
 				</mat-select>
 			</mat-form-field>
-		</div>
-
-		<div class="col-md-2">
-			<!-- <mat-form-field>
-				<mat-label>Date début</mat-label>
-				<input matInput [matDatepicker]="dateBegin">
-				<mat-datepicker-toggle matSuffix [for]="dateBegin"></mat-datepicker-toggle>
-				<mat-datepicker #dateBegin></mat-datepicker>
-			</mat-form-field> -->
-		</div>
-
-		<div class="col-md-2">
-			<!-- <mat-form-field>
-				<mat-label>Date fin</mat-label>
-				<input matInput [matDatepicker]="dateEnd">
-				<mat-datepicker-toggle matSuffix [for]="dateEnd"></mat-datepicker-toggle>
-				<mat-datepicker #dateEnd></mat-datepicker>
-			</mat-form-field> -->
-		</div>
-
-		<div class="col-sm-2 mt-2">
-			<button class="btn btn-warning pull-right btn-sm" (click)="preview()">
-				<i class="fas fa-print"></i> Imprimer
-			</button>
-		</div>
-	</div>
+        </div>
+        
+        <div class="col-sm-2 mt-2">
+            <button class="btn btn-info btn-sm" (click)="toHistoriqueCuvi()">
+                <i class="fas fa-arrow-right"></i> Vers historique CUVI
+            </button>
+        </div>
+    </div>   
 
 	<div class="card-body">
-
 		<div class="row">
-			<!-- Impression  -->
 			<table datatable class="row-border hover" [dtOptions]="dtOptions">
 				<thead style="background-color: #007E3A; color: #fff;">
 					<tr>
-						<th> Etat civil </th>
-						<th> Domaine</th>
+						<th> Exploitant </th>
+						<th> Domaine </th>
 						<th> Adhésion </th>
+						<th>Surface exploitée</th>
+						<th>Production annuelle</th>
 						<th> Localisation </th>
 						<th> Compétences </th>
-						<th> Niveau d'étude </th>
 						<th> Activités </th>
 						<th> Spécialités </th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="let item of exploitants.filteredData" (click)="openDialogDetailsExploitant(item)" class="cursor-cl">
+					<tr *ngFor="let item of listData.filteredData" (click)="openModal(item)" class="cursor-cl">
 						<td>{{item.exploitantFirstName | uppercase}} <br>
 							{{item.exploitantLastName | titlecase}}<br>
 							{{item.exploitantAge}} ans - {{item.exploitantSex | slice:0:1}}
 						</td>
-
 						<td>{{item.exploitantCedar}}</td>
-
 						<td>{{item.exploitantDate | date: 'dd/MM/yyyy'}}</td>
-
+						<td class="text-center" style="color: #DE3E59;"><b>{{item.surface}} m²</b></td>
+						<td class="text-center" style="color: #DE3E59;"><b>{{item.averageAnnualProd}} kg</b></td>
 						<td>{{item.exploitantRegion | titlecase}} <br>
 							{{item.exploitantDistrict | titlecase}}
 						</td>
-
 						<td>{{item.exploitantFormation | titlecase}}</td>
-
-						<td>{{item.exploitantSchooling | titlecase}}</td>
-
 						<td>{{item.exploitantActivite1 | titlecase}} <br>
 							{{item.exploitantActivite2 | titlecase}}
 						</td>
-
 						<td>{{item.exploitantSpeciality1 | titlecase}} <br>
 							{{item.exploitantSpeciality2 | titlecase}}
 						</td>
@@ -101,3 +75,5 @@
 		</div>
 	</div>
 </div>
+
+

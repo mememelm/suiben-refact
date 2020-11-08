@@ -13,7 +13,8 @@ export class EvolutionListComponent implements OnInit {
 
   displayedColumnsEvolution = ['exploitant', 'localisation', 'innovation', 'innovationlength', 'production']
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
+
+
 
 }

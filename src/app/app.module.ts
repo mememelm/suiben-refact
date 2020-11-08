@@ -27,6 +27,10 @@ import {
     FormationListComponent, DomaineCedarComponent
 } from './application';
 
+import { HistoricCumaComponent } from './application/production/historic-cuma/historic-cuma.component';
+import { CuviComponent } from './application/production/cuvi/cuvi.component';
+import { ProductionNavigationComponent } from './application/production/production-navigation/production-navigation.component';
+
 //animation
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -75,11 +79,22 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { ModalService } from './services/modal.service';
+
+// heure française + LOCAL_ID
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ProductionBovinComponent } from './application/production/production-bovin/production-bovin.component';
+import { ProductionCunnicultureComponent } from './application/production/production-cunniculture/production-cunniculture.component';
+import { ProductionApicultureComponent } from './application/production/production-apiculture/production-apiculture.component';
+import { ProductionAvicultureComponent } from './application/production/production-aviculture/production-aviculture.component';
+import { ProductionPorcicultureComponent } from './application/production/production-porciculture/production-porciculture.component';
+
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+import { HistoricCuviComponent } from './application/production/historic-cuvi/historic-cuvi.component'
+
 
 @NgModule({
     declarations: [
@@ -92,7 +107,16 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
         FormationListComponent,
         InnovationListComponent,
         EvolutionListComponent,
-        DomaineCedarComponent
+        DomaineCedarComponent,
+        HistoricCumaComponent,
+        CuviComponent,
+        ProductionNavigationComponent,
+        ProductionBovinComponent,
+        ProductionCunnicultureComponent,
+        ProductionApicultureComponent,
+        ProductionAvicultureComponent,
+        ProductionPorcicultureComponent,
+        HistoricCuviComponent
     ],
     imports: [
         BrowserModule,
@@ -109,7 +133,9 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
         NgxChartsModule,
         MDBBootstrapModule.forRoot(),
         DataTablesModule,
-
+        ChartsModule,
+        WavesModule,
+        
         // mat
         A11yModule,
         CdkTreeModule,

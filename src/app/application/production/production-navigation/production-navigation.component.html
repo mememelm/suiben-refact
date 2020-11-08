@@ -1,0 +1,60 @@
+<app-home></app-home>
+
+<div class="container d-flex justify-content-center mt-5">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Cultures maraîchères
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <p (click)="toCumaGlobal()">
+                <mat-label class="cursor-cl">- CUMA globales</mat-label>
+            </p>
+            <p (click)="toCumaHistoric()">
+                <mat-label class="cursor-cl">- CUMA - Historiques par exploitant</mat-label>
+            </p>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Cultures vivrières
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <p (click)="toCuviGlobal()">
+                <mat-label class="cursor-cl">- CUVI globales</mat-label>
+            </p>
+            <p (click)="toCuviHistoric()">
+                <mat-label class="cursor-cl">- CUVI - Historiques par exploitant</mat-label>
+            </p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Elevage
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <p (click)="toAviculture()">
+                <mat-label class="cursor-cl" >- Aviculture</mat-label>
+            </p>
+            <p (click)="toApiculture()">
+                <mat-label class="cursor-cl">- Apiculture</mat-label>
+            </p>
+            <p (click)="toBovin()">
+                <mat-label class="cursor-cl">- Bovin</mat-label>
+            </p>
+            <p (click)="toPorciculture()">
+                <mat-label class="cursor-cl">- Porciculture</mat-label>
+            </p>
+            <p (click)="toCunniculture()">
+                <mat-label class="cursor-cl">- Cunniculture</mat-label>
+            </p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
